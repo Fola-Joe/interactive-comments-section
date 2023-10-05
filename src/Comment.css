@@ -1,0 +1,19 @@
+.Comment {
+    background-color: hsl(0, 0%, 100%);
+}
+.comment-top {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+.comment-bottom {
+    display: flex;
+    justify-content: space-between;
+}
+.vote-section {
+    background-color: hsl(223, 19%, 93%);
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+}
