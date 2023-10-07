@@ -1,11 +1,11 @@
 import './App.css';
-import Comment from './Comment';
+import CommentList from './CommentList';
 
 function App() {
 
   return (
     <div className="App-main">
-      <Comment />
+      <CommentList />
     </div>
   )
 }

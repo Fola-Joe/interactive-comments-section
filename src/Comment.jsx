@@ -9,7 +9,7 @@ export default function Comment() {
                 <h2>1 month ago</h2>
             </section>
             <p className="comment-writeup">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Impressive! Though it seems Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Neque reiciendis sapiente voluptatibus officia cumque aut atque,
                 qui soluta consequatur perspiciatis, aperiam hic cum dignissimos
                 distinctio quis est provident. Commodi, quasi!

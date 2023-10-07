@@ -1,11 +1,24 @@
 .Comment {
     background-color: hsl(0, 0%, 100%);
+    padding-top: 1rem;
+    margin-top: 1rem;
+    border-radius: 0.5rem;
 }
 .comment-top {
     display: flex;
     align-items: center;
     gap: 1rem;
-    margin-bottom: 1rem;
+    margin: 0 1rem 1rem;
+}
+.comment-top img {
+    width: 2rem;
+}
+.comment-top h1 {
+    font-weight: 700;
+    font-size: 0.95rem;
+}
+.comment-top h2 {
+    font-size: 0.9rem;
 }
 .comment-bottom {
     display: flex;
@@ -14,6 +27,25 @@
 .vote-section {
     background-color: hsl(223, 19%, 93%);
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1.5fr 1fr;
+    gap: 0.75rem;
     align-items: center;
+    margin: 1rem;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    color: hsl(238, 40%, 52%);
+    font-weight: 500;
+}
+.reply-section {
+    margin: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 500;
+    color: hsl(238, 40%, 52%);
+}
+.plus, .minus {cursor: pointer;}
+.comment-writeup {
+    margin-left: 1rem;
+    line-height: 1.3;
 }
