@@ -46,6 +46,6 @@
 }
 .plus, .minus {cursor: pointer;}
 .comment-writeup {
-    margin-left: 1rem;
+    margin: 0 1rem;
     line-height: 1.3;
 }
