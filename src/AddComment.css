@@ -1,0 +1,43 @@
+.add-comment {
+    margin-top: 1rem;
+    background-color: hsl(0, 0%, 100%);
+    padding: 1rem;
+    border-radius: 0.5rem;
+}
+#text-area {
+    font-family: 'Rubik', sans-serif;
+    font-size: 1rem;
+    line-height: 1.3;
+    height: 5rem;
+    width: 94%;
+    margin-bottom: 1rem;
+    resize: none;
+    outline: none;
+    border-color: hsl(228, 33%, 97%);
+    border-radius: 0.5rem;
+    padding-left: 1rem;
+    padding-top: 0.5rem;
+    color: hsl(211, 10%, 45%);
+}
+.bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.bottom img {
+    width: 2rem;
+}
+.bottom button {
+    font-family: 'Rubik', sans-serif;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    text-transform: uppercase;
+    border-radius: 0.3rem;
+    color: hsl(0, 0%, 100%);
+    background-color: hsl(238, 40%, 52%);
+    cursor: pointer;
+}
+.bottom button:hover {
+    opacity: 0.4;
+}
