@@ -1,11 +1,19 @@
 import './AddComment.css';
 import { useState } from 'react';
 
-export default function AddComment() {
+export default function AddComment({ onAddComment }) {
     const [commentText, setCommentText] = useState('');
 
     const handleCommentChange = (event) => {
         setCommentText(event.target.value);
+    };
+
+    const handleSendClick = () => {
+        if (commentText) {
+            onAddComment(commentText);
+        }
+        //   onAddComment(commentText);
+        setCommentText(''); // Clear the input field
     };
 
     return (
@@ -14,12 +22,13 @@ export default function AddComment() {
                 name="comment-text"
                 id="text-area"
                 placeholder="Add a comment..."
+                value={commentText}
                 onChange={handleCommentChange}
             />
             <div className="bottom">
                 <img src="avatars/image-juliusomo.png" alt="user icon" />
-                <button>Send</button>
+                <button onClick={handleSendClick}>Send</button>
             </div>
         </footer>
-    )
+    );
 }

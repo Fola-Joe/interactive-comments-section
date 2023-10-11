@@ -3,18 +3,45 @@ import data from "./data.json";
 import ReplyComment from "./ReplyComment";
 import './CommentList.css';
 import AddComment from "./AddComment";
+import { useState, useEffect } from "react";
+// import NewAddedComment from "./NewAddedComment";
 
 export default function CommentList() {
-    const { comments } = data;
     // Extract the comments array from the JSON data
+    const { comments } = data;
+
+    // Initialize state for managing comments
+    const [commentData, setCommentData] = useState(comments);
+
+    // this function creates a new comment
+    const addComment = (commentText) => {
+        const newComment = {
+            id: commentData.length + 1,
+            user: {
+                username: 'juliusomo',
+                image: {
+                    png: 'avatars/image-juliusomo.png',
+                    webp: 'avatars/image-juliusomo.webp',
+                },
+            },
+            content: commentText,
+            createdAt: new Date().toDateString(),
+            score: 0,
+            replies: [],
+        };
+
+        // add new comment to the array of comments
+        setCommentData([...commentData, newComment]);
+    };
 
     return (
         <div className="CommentList">
-            {comments.map((comment) => (
+            {commentData.map((comment) => (
                 <div className="comment-component">
                     <Comment
                         key={comment.id}
-                        username={comment.user.username}
+                        // username={comment.user.username}
+                        username={comment.user ? comment.user.username : console.log('Unknown User')}
                         content={comment.content}
                         image={comment.user.image.png}
                         time={comment.createdAt}
@@ -38,7 +65,8 @@ export default function CommentList() {
                     )}
                 </div>
             ))}
-            <AddComment />
+
+            <AddComment onAddComment={addComment} />
         </div>
     )
 }
