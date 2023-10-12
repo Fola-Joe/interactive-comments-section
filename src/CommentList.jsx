@@ -40,8 +40,7 @@ export default function CommentList() {
                 <div className="comment-component">
                     <Comment
                         key={comment.id}
-                        // username={comment.user.username}
-                        username={comment.user ? comment.user.username : console.log('Unknown User')}
+                        username={comment.user.username}
                         content={comment.content}
                         image={comment.user.image.png}
                         time={comment.createdAt}

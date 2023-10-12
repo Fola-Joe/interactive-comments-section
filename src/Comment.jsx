@@ -1,4 +1,6 @@
 import './Comment.css';
+import ReplyButton from './ReplyButton';
+import EditButton from './EditButton';
 import { useState } from 'react';
 
 export default function Comment({ username, content, image, time, score }) {
@@ -39,10 +41,7 @@ export default function Comment({ username, content, image, time, score }) {
                         onClick={() => updateScore(-1)}
                     />
                 </section>
-                <section className="reply-section">
-                    <img src="/icon-reply.svg" alt="reply icon" />
-                    <h4>Reply</h4>
-                </section>
+                {username == 'juliusomo' ? <EditButton /> : <ReplyButton />}
             </div>
         </div>
     )

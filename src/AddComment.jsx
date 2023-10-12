@@ -12,8 +12,8 @@ export default function AddComment({ onAddComment }) {
         if (commentText) {
             onAddComment(commentText);
         }
-        //   onAddComment(commentText);
-        setCommentText(''); // Clear the input field
+        // Clear the input field
+        setCommentText('');
     };
 
     return (
