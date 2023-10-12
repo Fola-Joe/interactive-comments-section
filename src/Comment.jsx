@@ -1,6 +1,7 @@
 import './Comment.css';
 import ReplyButton from './ReplyButton';
 import EditButton from './EditButton';
+import AddComment from './AddComment';
 import { useState } from 'react';
 
 export default function Comment({ username, content, image, time, score }) {
@@ -17,32 +18,41 @@ export default function Comment({ username, content, image, time, score }) {
         setNewScore(nonNegativeScore);
     };
 
+    const [isReplying, setIsReplying] = useState(false);
+
+    const toggleReplyForm = () => {
+        setIsReplying(!isReplying);
+    };
+
     return (
-        <div className="Comment">
-            <section className="comment-top">
-                <img src={image} alt="user avatar" />
-                <h1>{username}</h1>
-                <h2>{time}</h2>
-            </section>
-            <p className="comment-writeup">{content}</p>
-            <div className="comment-bottom">
-                <section className="vote-section">
-                    <img
-                        className="vote plus"
-                        src="/icon-plus.svg"
-                        alt="plus icon"
-                        onClick={() => updateScore(1)}
-                    />
-                    <h3 className="vote number">{newScore}</h3>
-                    <img
-                        className="vote minus"
-                        src="/icon-minus.svg"
-                        alt="minus icon"
-                        onClick={() => updateScore(-1)}
-                    />
+        <div className="wrapper">
+            <div className="Comment">
+                <section className="comment-top">
+                    <img src={image} alt="user avatar" />
+                    <h1>{username}</h1>
+                    <h2>{time}</h2>
                 </section>
-                {username == 'juliusomo' ? <EditButton /> : <ReplyButton />}
+                <p className="comment-writeup">{content}</p>
+                <div className="comment-bottom">
+                    <section className="vote-section">
+                        <img
+                            className="vote plus"
+                            src="/icon-plus.svg"
+                            alt="plus icon"
+                            onClick={() => updateScore(1)}
+                        />
+                        <h3 className="vote number">{newScore}</h3>
+                        <img
+                            className="vote minus"
+                            src="/icon-minus.svg"
+                            alt="minus icon"
+                            onClick={() => updateScore(-1)}
+                        />
+                    </section>
+                    {username == 'juliusomo' ? <EditButton /> : <ReplyButton toggle={toggleReplyForm} />}
+                </div>
             </div>
+            {isReplying ? <AddComment /> : ''}
         </div>
     )
 }
