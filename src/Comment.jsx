@@ -1,25 +1,22 @@
 import './Comment.css';
 import ReplyButton from './ReplyButton';
 import EditButton from './EditButton';
-import AddComment from './AddComment';
+import ReplyForm from './ReplyForm';
 import { useState } from 'react';
 
-export default function Comment({ username, content, image, time, score }) {
+export default function Comment({ username, content, image, time, score, addReplyToComment, id }) {
     const [newScore, setNewScore] = useState(score);
 
     // function to update votes
     const updateScore = (value) => {
         // Calculate the updated score
         const updatedScore = newScore + value;
-
         // Prevent the score from going below 0
         const nonNegativeScore = Math.max(updatedScore, 0);
-
         setNewScore(nonNegativeScore);
     };
 
     const [isReplying, setIsReplying] = useState(false);
-
     const toggleReplyForm = () => {
         setIsReplying(!isReplying);
     };
@@ -52,7 +49,11 @@ export default function Comment({ username, content, image, time, score }) {
                     {username == 'juliusomo' ? <EditButton /> : <ReplyButton toggle={toggleReplyForm} />}
                 </div>
             </div>
-            {isReplying ? <AddComment /> : ''}
+            {isReplying && <ReplyForm
+                commentId={id}
+                addReplyToComment={addReplyToComment}
+                removeForm={() => setIsReplying(false)}
+            />}
         </div>
     )
 }

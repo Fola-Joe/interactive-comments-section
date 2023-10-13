@@ -9,7 +9,7 @@ export default function AddComment({ onAddComment }) {
     };
 
     const handleSendClick = () => {
-        if (commentText) {
+        if (commentText.trim()) {
             onAddComment(commentText);
         }
         // Clear the input field

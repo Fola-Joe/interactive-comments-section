@@ -3,8 +3,7 @@ import data from "./data.json";
 import ReplyComment from "./ReplyComment";
 import './CommentList.css';
 import AddComment from "./AddComment";
-import { useState, useEffect } from "react";
-// import NewAddedComment from "./NewAddedComment";
+import { useState } from "react";
 
 export default function CommentList() {
     // Extract the comments array from the JSON data
@@ -34,6 +33,20 @@ export default function CommentList() {
         setCommentData([...commentData, newComment]);
     };
 
+    const addReplyToComment = (commentId, reply) => {
+        const updatedComments = commentData.map(comment => {
+            if (comment.id === commentId) {
+                return {
+                    ...comment,
+                    replies: [...comment.replies, reply],
+                };
+            }
+            return comment;
+        });
+
+        setCommentData(updatedComments);
+    };
+
     return (
         <div className="CommentList">
             {commentData.map((comment) => (
@@ -45,6 +58,8 @@ export default function CommentList() {
                         image={comment.user.image.png}
                         time={comment.createdAt}
                         score={comment.score}
+                        addReplyToComment={addReplyToComment}
+                        id={comment.id}
                     />
 
                     {/* Check if there are replies and render them */}
